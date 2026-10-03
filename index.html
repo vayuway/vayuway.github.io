@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIMTO is under construction</title>
+<meta name="description" content="SIMTO is under construction. Launching soon.">
+<style>
+  :root{--bg:#0d1117;--fg:#e6edf3;--muted:#8b949e;--link:#58a6ff;--line:#30363d;--hover:#161b22}
+  :root[data-theme=light]{--bg:#ffffff;--fg:#1f2328;--muted:#59636e;--link:#0969da;--line:#d1d9e0;--hover:#f6f8fa}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-align:center;padding:24px}
+  h1{font-size:clamp(2rem,6vw,3.5rem);margin:0 0 12px;letter-spacing:.02em}
+  .tag{font-size:1.25rem;color:var(--muted);margin:0 0 32px}
+  nav{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:32px}
+  nav a{color:var(--link);text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:8px 16px}
+  nav a:hover{background:var(--hover)}
+  footer{color:var(--muted);font-size:.95rem}
+  footer a{color:var(--link)}
+  #theme{position:fixed;top:16px;right:16px;background:transparent;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:8px 14px;font:inherit;cursor:pointer}
+  #theme:hover{background:var(--hover)}
+</style>
+</head>
+<body>
+<button id="theme" type="button" aria-label="Switch between dark and light mode">Light mode</button>
+<main>
+  <h1>SIMTO is under construction</h1>
+  <p class="tag">Launching soon.</p>
+  <nav aria-label="Our sites">
+    <a href="https://vayuway.com">vayuway.com</a>
+    <a href="https://vayuway.in">vayuway.in</a>
+    <a href="https://github.com/vayuway">GitHub</a>
+    <a href="https://www.youtube.com/@vayuway_in">YouTube</a>
+    <a href="https://x.com/vayuway_in">X</a>
+  </nav>
+</main>
+<footer>Contact: <a href="mailto:info.simto@gmail.com">info.simto@gmail.com</a></footer>
+<script>
+(function(){
+  var r=document.documentElement,b=document.getElementById('theme');
+  var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+  function apply(x){r.setAttribute('data-theme',x);b.textContent=x==='dark'?'Light mode':'Dark mode';}
+  apply(t);
+  b.addEventListener('click',function(){t=t==='dark'?'light':'dark';localStorage.setItem('theme',t);apply(t);});
+})();
+</script>
+</body>
+</html>
